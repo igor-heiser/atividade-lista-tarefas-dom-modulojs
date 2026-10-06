@@ -2,29 +2,37 @@ const form = document.querySelector("[data-form]");
 const input = document.querySelector("[data-input]");
 const list = document.querySelector("[data-list]");
 
-import BotaoDeleta from "./deletaTarefa.js";
 import BotaoConclui from "./concluiTarefa.js";
+import BotaoDeleta from "./deletaTarefa.js";
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", (event) => {    
     event.preventDefault();
 
-    const valor = input.value.trim();
+    const value = input.value.trim();
 
-    if(valor == ""){
-        alert("O nome da tarefa não pode ser vazio!");
+    if(value === ""){
+        alert("ERROR: the task cannot be empty.");
+        return;
     }
 
-    const tarefa = document.createElement("li");
-    tarefa.classList.add("tarefa");
+    const task = document.createElement("li");
+    task.classList.add("task");
 
     const text = document.createElement("p");
-    text.classList.add("tarefa-text");
-    text.textContent = valor;
+    text.classList.add("task-text");
+    text.textContent = value;
 
-    tarefa.appendChild(text);
-    tarefa.appendChild(BotaoConclui());
-    tarefa.appendChild(BotaoDeleta());
-    list.appendChild(tarefa);
+    const actions = document.createElement("div");
+    actions.classList.add("actions");
+
+    task.appendChild(text);
+    task.appendChild(actions);
+
+    actions.appendChild(BotaoConclui());
+    actions.appendChild(BotaoDeleta());
+    
+    list.appendChild(task);
+    
     input.value = "";
     input.focus();
-})
+});

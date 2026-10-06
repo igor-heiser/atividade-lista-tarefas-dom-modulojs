@@ -39,6 +39,10 @@ button{
     font-weight: bold;
 }
 
+button:hover{
+    background-color: rgba(0, 47, 255, 0.795);
+}
+
 ul{
     list-style: none;
     display: flex;
@@ -53,6 +57,7 @@ li{
     padding: 1rem;
     border-radius: 0.5rem;
     display: flex;
+    justify-content: space-between;
 }
 
 li p{
@@ -63,4 +68,25 @@ li p{
 .done {
     text-decoration: line-through;
     opacity: 0.5;
+}
+
+.actions{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.button-finish{
+    background-color: green;
+}
+
+.button-finish:hover{
+        background-color: rgba(0, 128, 0, 0.788);
+}
+
+.button-delete{
+    background-color: red;
+}
+
+.button-delete:hover{
+    background-color: rgba(255, 0, 0, 0.781);
 }

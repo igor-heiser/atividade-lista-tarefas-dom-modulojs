@@ -1,16 +1,17 @@
 function BotaoConclui(){
-    const botao = document.createElement("button");
+    const button = document.createElement("button");
 
-    botao.textContent = "Concluir tarefa";
-    botao.classList.add("botao-conclui");
+    button.textContent = "Complete task";
+    button.classList.add("button-finish");
 
-    botao.addEventListener("click", (event) => {
-        const tarefa = event.target.parentElement;
-        const texto = tarefa.querySelector(".tarefa-text");
+    button.addEventListener("click", (event) => {
+        const task = event.target.parentElement.parentElement;
+        const text = task.querySelector(".task-text");
 
-        texto.classList.toggle("done");
+        text.classList.toggle("done");
     });
-    return botao;
+
+    return button;
 }
 
 export default BotaoConclui;
